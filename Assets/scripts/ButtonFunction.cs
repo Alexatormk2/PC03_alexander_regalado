@@ -9,26 +9,18 @@ public class ButtonFunction : MonoBehaviour
 {
 
     
- public Canvas pauseCanvas;
-    public Slider _slider;
-    playermove playerm= new playermove();
-
-    
-    // Start is called before the first frame update
-  public void ResumeGame()
-
-    {
-        
-    Time.timeScale = 1;
-    pauseCanvas.gameObject.SetActive(false);
-
-    }
-    
-
+public Canvas pauseCanvas;  
+ 
+    public void ResumeGame()
+        {
+        //despausa el juego        
+        Time.timeScale = 1;
+        pauseCanvas.gameObject.SetActive(false);
+        } 
     public void ExitGame()
-    {
-        Application.Quit();
-    }
+        {
+            Application.Quit();
+        }
 
 
 }
