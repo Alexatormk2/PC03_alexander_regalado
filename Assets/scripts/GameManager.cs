@@ -8,24 +8,15 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 
 {
-
+playermove playerm= new playermove();
+ public Canvas pauseCanvas;
     private  CustomControls referenceInputs;
     // Start is called before the first frame update
    void Awake()
 {
-
-
-
     referenceInputs = new CustomControls();
     referenceInputs.Enable();
-   
- 
-   
-
 }
-
-
-
     private void OnEnable()
 {
    referenceInputs.PauseMenu.PasueGame.performed += PauseGame;
@@ -33,9 +24,10 @@ public class GameManager : MonoBehaviour
  
 }
 private void PauseGame(InputAction.CallbackContext callbackContext){
-
-    SceneManager.LoadScene("PAUSEMENU",LoadSceneMode.Additive);
     Time.timeScale = 0;
+    pauseCanvas.gameObject.SetActive(true);
+    
+    
 }
     
 

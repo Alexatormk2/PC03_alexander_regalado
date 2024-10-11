@@ -13,14 +13,16 @@ using Slider = UnityEngine.UI.Slider;
 using Vector2 = UnityEngine.Vector2;
 
 public class playermove : MonoBehaviour
+
 {
-        private Vector2 keyDetect;
+    public Slider _slider;
+    private Vector2 keyDetect;
         
     public  int jumpForce = 4;
-    public float speed =0.05f;
+    float speed =0.05f;
 
     public Rigidbody player;
-   private  CustomControls referenceInputs;
+    private  CustomControls referenceInputs;
 
 
 
@@ -28,11 +30,10 @@ public class playermove : MonoBehaviour
 
 
 
-public void SetSliderSpeed(float slspeed){
-    speed = slspeed;
-
-
-}
+public void SpeedSlider()
+    {
+    speed = _slider.value;
+    }
 void Awake()
 {
 
@@ -55,12 +56,17 @@ private void MovStart(InputAction.CallbackContext callbackContext)
 
 private void MoveOn(){
 
-    Debug.Log("tecla: " + keyDetect);
+    Debug.Log("tecla: "+ speed);
 
-
+if(Time.timeScale == 1)
+{
 
 player.transform.position+= new UnityEngine.Vector3(keyDetect.x*speed,0f,keyDetect.y*speed);
-    
+}
+else
+{
+    Debug.Log("a");
+}   
 
 }
 private void MoveStop(InputAction.CallbackContext callbackContext)
